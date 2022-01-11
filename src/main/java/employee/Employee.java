@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * This class represents an employee and all their related aspects.
+ */
 @Entity
 class Employee
 {
