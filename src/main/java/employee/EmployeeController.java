@@ -1,7 +1,9 @@
 package employee;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -120,12 +123,22 @@ class EmployeeController
                 .body(entityModel);
     }
 
-//    @DeleteMapping("/employees/{id}")
-//    ResponseEntity<?> deleteEmployee(@PathVariable Long id)
-//    {
-//
-//        repository.deleteById(id);
-//
-//        return ResponseEntity.noContent().build();
-//    }
+    /**
+     * Once authorized, the employee's status will be set to inactive and will not be retrievable from all employees
+     * or by searching their unique ID.
+     *
+     * @param id The ID of the employee to set to inactive status.
+     * @return A response entity with no content.
+     */
+    @DeleteMapping("/employees/{id}")
+    ResponseEntity<?> setEmployeeToInactive(@PathVariable Long id)
+    {
+        repository.findById(id).map(employee -> {
+                    employee.setStatus(Status.INACTIVE);
+                    return repository.save(employee);
+                })
+                .orElseThrow(() -> new EmployeeNotFoundException(id));
+
+        return ResponseEntity.ok().build();
+    }
 }
