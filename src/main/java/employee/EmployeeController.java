@@ -25,7 +25,7 @@ class EmployeeController
     private final EmployeeRepository repository;
 
     /**
-     * The class responsible for wraping {@link Employee} objects within an entity model.
+     * The class responsible for wrapping {@link Employee} objects within an entity model.
      */
     private final EmployeeModelAssembler assembler;
 
