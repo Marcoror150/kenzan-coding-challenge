@@ -1,7 +1,6 @@
 package employee;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.hateoas.CollectionModel;
@@ -53,6 +52,7 @@ class EmployeeController
     CollectionModel<EntityModel<Employee>> all()
     {
         List<EntityModel<Employee>> employees = repository.findAll().stream()
+                .filter(employee1 -> !employee1.getStatus().equals(Status.INACTIVE))
                 .map(assembler::toModel)
                 .collect(Collectors.toList());
 
@@ -84,7 +84,7 @@ class EmployeeController
     @GetMapping("/employees/{id}")
     EntityModel<Employee> one(@PathVariable Long id)
     {
-        Employee employee = repository.findById(id)
+        Employee employee = repository.findById(id).filter(employee1 -> !employee1.getStatus().equals(Status.INACTIVE))
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
 
         return assembler.toModel(employee);
