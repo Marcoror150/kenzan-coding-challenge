@@ -82,14 +82,6 @@ class Employee
     }
 
     /**
-     * @return The full name of the employee.
-     */
-    public String getName()
-    {
-        return this.firstName + " " + this.middleInitial + " " + this.lastName;
-    }
-
-    /**
      * @return The unique identifier assigned to the employee.
      */
     public Long getId()
