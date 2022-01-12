@@ -1,17 +1,25 @@
+// View all employees
 curl -v localhost:8080/employees/ | json_pp
 
+// View a single employee
 curl -v localhost:8080/employees/1 | json_pp
 
+// Update an employee
 curl -v -X PUT localhost:8080/employees/1 -H 'Content-Type:application/json' -d '{"firstName": "Marc",
 "middleInitial": "H",
 "lastName": "Christensen",
 "dateOfBirth": "06-18-1996",
 "dateOfEmployment": "01-15-2022"}'
 
+// Add a new employee
 curl -v -X POST localhost:8080/employees -H 'Content-Type:application/json' -d '{"firstName": "Tucker",
 "middleInitial": "A",
 "lastName": "Smith",
 "dateOfBirth": "05-04-1977",
 "dateOfEmployment": "05-04-2018"}'
 
+// Delete an employee
 curl -v -X DELETE localhost:8080/employees/1
+
+// View a single employee that is inactive (result will not be returned as they are in inactive status)
+curl -v localhost:8080/employees/1 | json_pp

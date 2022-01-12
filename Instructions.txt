@@ -1,0 +1,8 @@
+To start the Spring server:
+Run the main method in 'EmployeeApplication'
+
+To interact with the server:
+Execute cURL commands against localhost:8080
+The DB will be pre-populated with three employees.
+
+Example cURLs are found in the TestCurls.txt file.
