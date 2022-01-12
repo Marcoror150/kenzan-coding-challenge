@@ -11,12 +11,19 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * with an employee in the DB.
  */
 @ControllerAdvice
-class EmployeeNotFoundAdvice {
-
+class EmployeeNotFoundAdvice
+{
+    /**
+     * Returns the message of the exception to be used to give feedback back to the user.
+     *
+     * @param ex The exception thrown when an employee is not found.
+     * @return The message of the exception.
+     */
     @ResponseBody
     @ExceptionHandler(EmployeeNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String employeeNotFoundHandler(EmployeeNotFoundException ex) {
+    String employeeNotFoundHandler(EmployeeNotFoundException ex)
+    {
         return ex.getMessage();
     }
 }

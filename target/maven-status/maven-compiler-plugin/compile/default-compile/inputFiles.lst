@@ -2,8 +2,10 @@ C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\Employee
 C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\EmployeeNotFoundException.java
 C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\EmployeeNotFoundAdvice.java
 C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\LoadDatabase.java
+C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\EmployeeAuthenticationEntryPoint.java
 C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\Employee.java
 C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\EmployeeRepository.java
 C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\EmployeeController.java
 C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\Status.java
+C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\EmployeeWebSecurityConfigurerAdapter.java
 C:\Users\marcx\Documents\kenzan-coding-challenge\src\main\java\employee\EmployeeModelAssembler.java
