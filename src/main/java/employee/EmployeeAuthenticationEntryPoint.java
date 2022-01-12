@@ -2,6 +2,7 @@ package employee;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import java.io.PrintWriter;
 /**
  * This class generates the response page when a user tries to perform an operation they are not authorized for.
  */
+@Component
 public class EmployeeAuthenticationEntryPoint extends BasicAuthenticationEntryPoint
 {
     /**

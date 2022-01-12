@@ -1,7 +1,11 @@
+employee\EmployeeApplication.class
+employee\EmployeeWebSecurityConfigurerAdapter.class
 employee\EmployeeRepository.class
+employee\EmployeeAuthenticationEntryPoint.class
 employee\EmployeeModelAssembler.class
 employee\EmployeeNotFoundException.class
 employee\EmployeeController.class
 employee\EmployeeNotFoundAdvice.class
 employee\Status.class
+employee\LoadDatabase.class
 employee\Employee.class
