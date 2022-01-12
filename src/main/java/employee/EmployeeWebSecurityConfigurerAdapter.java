@@ -53,9 +53,9 @@ public class EmployeeWebSecurityConfigurerAdapter extends WebSecurityConfigurerA
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/employees").permitAll()
                 .antMatchers(HttpMethod.GET, "/employees").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/employees/*").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.GET, "/employees/*").permitAll()
                 .antMatchers(HttpMethod.PUT, "/employees/*").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/employees/*").hasAuthority("ADMIN")
                 .and()
                 .httpBasic()
                 .authenticationEntryPoint(authenticationEntryPoint);

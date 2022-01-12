@@ -22,7 +22,7 @@ curl -v -X POST localhost:8080/employees -H 'Content-Type:application/json' -d '
 curl -v -X DELETE localhost:8080/employees/1
 
 // Delete an employee as an admin.
-curl -i --user admin:admin DELETE localhost:8080/employees/1
+curl -i --user admin:admin -v -X DELETE localhost:8080/employees/1
 
 // View a single employee that is inactive (result will not be returned as they are in inactive status)
 curl -v localhost:8080/employees/1 | json_pp
