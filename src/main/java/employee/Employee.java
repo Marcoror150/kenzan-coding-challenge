@@ -1,6 +1,9 @@
 package employee;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,11 +40,13 @@ class Employee
     /**
      * The date of birth of the employee.
      */
+    @JsonFormat(pattern = "MM-dd-yyyy")
     private LocalDate dateOfBirth;
 
     /**
      * The starting date of the employee.
      */
+    @JsonFormat(pattern = "MM-dd-yyyy")
     private LocalDate dateOfEmployment;
 
     /**

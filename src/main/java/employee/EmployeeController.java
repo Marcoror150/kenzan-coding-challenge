@@ -2,7 +2,6 @@ package employee;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -68,6 +67,9 @@ class EmployeeController
     @PostMapping("/employees")
     ResponseEntity<?> newEmployee(@RequestBody Employee newEmployee)
     {
+        // Every new employee should have their status initialized to active, whether the user declares it or not.
+        newEmployee.setStatus(Status.ACTIVE);
+
         EntityModel<Employee> entityModel = assembler.toModel(repository.save(newEmployee));
 
         return ResponseEntity
@@ -101,7 +103,6 @@ class EmployeeController
     @PutMapping("/employees/{id}")
     ResponseEntity<?> replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id)
     {
-
         Employee updatedEmployee = repository.findById(id)
                 .map(employee -> {
                     employee.setFirstName(newEmployee.getFirstName());
